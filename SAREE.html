@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Shopping Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        .header {
+            background-color: #959292;
+            color: rgb(0, 0, 0);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .filters {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filters input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .filters button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .filters button:hover {
+            background-color: #868282;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background-color: #f1f1f1;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            font-size: 14px;
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 1024px) {
+            .product-list {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>SHIRTS</h1>
+    </div>
+
+    <div class="container">
+        <div class="filters">
+            <div>
+                <label for="minPrice">Min Price: </label>
+                <input type="number" id="minPrice" value="0" min="0">
+                <label for="maxPrice">Max Price: </label>
+                <input type="number" id="maxPrice" value="1000" min="0">
+            </div>
+            <button onclick="filterProducts()">Filter</button>
+        </div>
+
+        <div class="product-list" id="productList">
+            <!-- Men's Products -->
+            <div class="product" data-category="men" data-price="20">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>Lee Cooper</h3>
+                <p>$20.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="45">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>Lee</h3>
+                <p>$45.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="60">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>Wrangler</h3>
+                <p>$60.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="75">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>Twills</h3>
+                <p>$75.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="90">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>Snitch</h3>
+                <p>$90.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="25">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>Bounce Break</h3>
+                <p>$25.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="30">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>Denim</h3>
+                <p>$30.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="50">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>Sin</h3>
+                <p>$50.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="35">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>Flying Machine</h3>
+                <p>$35.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="55">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>John Players</h3>
+                <p>$55.00</p>
+            </div>
+
+            <!-- 10 more men's products with varying prices -->
+
+            <div class="product" data-category="men" data-price="40">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$40.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="70">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$70.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="85">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$85.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="90">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$90.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="100">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$100.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="28">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$28.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="33">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$33.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="46">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$46.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="67">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$67.00</p>
+            </div>
+            <div class="product" data-category="men" data-price="78">
+                <img src="shirt.jpg" alt="Men's Product">
+                <h3>lee</h3>
+                <p>$78.00</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterProducts() {
+            const minPrice = parseFloat(document.getElementById('minPrice').value);
+            const maxPrice = parseFloat(document.getElementById('maxPrice').value);
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const productPrice = parseFloat(product.getAttribute('data-price'));
+
+                if (productPrice >= minPrice && productPrice <= maxPrice) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
